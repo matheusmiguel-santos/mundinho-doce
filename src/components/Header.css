@@ -1,0 +1,44 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #FFB6C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 80%;
+    position: absolute;
+    left: 10px;
+  }
+  
+  .title {
+    margin: 0;
+  }
+  
+  .checkout {
+    position: absolute;
+    right: 10px;
+  }
+  
+  .checkout-button {
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .checkout-button:active {
+    background: rgba(128, 128, 128, 0.7);
+  }
+  
+  .checkout-img {
+    height: 50px;
+  }
+  

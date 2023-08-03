@@ -1,0 +1,45 @@
+.footer {
+    background-color: #FFB6C1;
+    height: 165px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.footer-content {
+  align-self: flex-start;
+}
+
+.footer-credits {
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 100px;
+  }
+
+  .footer-content {
+    align-self: center;
+  }
+
+  .footer-content h2, .footer-content p {
+    font-size: 12px;
+    margin: 2px 0;  /* Reduzir a margem entre o título e os parágrafos */
+  }
+
+  .footer-credits {
+    font-size: 10px;
+    margin: 2px 0;  /* Reduzir a margem ao redor dos créditos */
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

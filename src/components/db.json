@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Produto 1",
+      "description": "Esta é a descrição do Produto 1",
+      "image": "http://placekitten.com/200/300",
+      "price": 10.99,
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "title": "Produto 2",
+      "description": "Esta é a descrição do Produto 2",
+      "image": "http://placekitten.com/200/300",
+      "price": 15.99,
+      "quantity": 0
+    },
+    {
+      "id": 3,
+      "title": "Produto 3",
+      "description": "Esta é a descrição do Produto 3",
+      "image": "http://placekitten.com/200/300",
+      "price": 12.99,
+      "quantity": 0
+    }
+  ]
+}
