@@ -113,6 +113,29 @@
   }
   
 
+  /* Estilos para os botões */
+.cart-actions button {
+  background-color: #FFB6C1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;  /* Bordas arredondadas */
+  margin: 2px;
+  cursor: pointer;
+}
+
+.cart-actions button:hover {
+  background-color: #FFA0B3;
+}
+
+/* Estilos para a caixa de seleção */
+.payment-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
