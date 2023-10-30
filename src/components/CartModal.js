@@ -133,7 +133,7 @@ function CartModal({ isOpen, closeModal }) {
             </table>
           </div>
         )}
-        <h2>Total: {total.toFixed(2)}</h2>
+        <h2>Total: {total.toFixed(2)} </h2>
         <h3>Forma de Pagamento:</h3>
         <select className="payment-select" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
           <option value="PIX">PIX</option>
