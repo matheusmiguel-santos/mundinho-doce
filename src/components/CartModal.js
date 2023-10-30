@@ -26,7 +26,7 @@ function CartModal({ isOpen, closeModal }) {
     }));
   
     try {
-      const response = await fetch('/api/mercadopago', { // Substitua '/api/mercadopago' pelo caminho real da sua rota serverless
+      const response = await fetch('https://mundinho-doce.vercel.app/api/mercadopago', { // Substitua '/api/mercadopago' pelo caminho real da sua rota serverless
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -133,7 +133,7 @@ function CartModal({ isOpen, closeModal }) {
             </table>
           </div>
         )}
-        <h2>Total: {total.toFixed(2)} </h2>
+        <h2>Total: {total.toFixed(2)} 💲 </h2>
         <h3>Forma de Pagamento:</h3>
         <select className="payment-select" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
           <option value="PIX">PIX</option>
