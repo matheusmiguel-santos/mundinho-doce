@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
-export const CartContext = React.createContext();
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product, quantity, value) => {
-    setCartItems([...cartItems, { product, quantity, value }]);
+  const addToCart = (product, quantity, value, image) => {  // Adicione o parâmetro image
+    const newItem = { product, quantity, value, image };  // Inclua a imagem aqui
+    setCartItems(prevItems => [...prevItems, newItem]);
   };
 
   const removeFromCart = (product) => {
-    setCartItems(cartItems.filter(item => item.product !== product));
+    setCartItems(prevItems => prevItems.filter(item => item.product !== product));
   };
 
   return (

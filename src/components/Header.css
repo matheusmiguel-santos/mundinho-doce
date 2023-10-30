@@ -1,44 +1,71 @@
+/* Header.css */
 .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 75px;
-    background-color: #FFB6C1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logo {
-    height: 80%;
-    position: absolute;
-    left: 10px;
-  }
-  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #FFB6C1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 80%;
+  position: absolute;
+  left: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 2em; /* Defina o tamanho da fonte desejado aqui */
+}
+
+.checkout {
+  position: absolute;
+  right: 10px;
+}
+
+.checkout-button {
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(128, 128, 128, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-button:active {
+  background: rgba(128, 128, 128, 0.7);
+}
+
+.checkout-img {
+  height: 50px;
+}
+.item-count {
+  position: absolute;
+  top: -10px;  /* Posiciona um pouco acima do canto do ícone */
+  right: -10px;  /* Posiciona um pouco à direita do canto do ícone */
+  background: red;
+  color: white;
+  border-radius: 50%;  /* Faz com que o fundo seja completamente redondo */
+  width: 24px;  /* Ajuste o tamanho conforme necessário */
+  height: 24px;  /* Ajuste o tamanho conforme necessário */
+  font-size: 14px;  /* Tamanho da fonte do número */
+  font-weight: bold;  /* Deixa o número em negrito */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px #333;  /* Adiciona uma pequena sombra para dar profundidade */
+}
+
+
+/* Media query para telas com largura até 480px */
+@media only screen and (max-width: 480px) {
   .title {
-    margin: 0;
+    font-size: 1.2em; /* Diminua o tamanho da fonte para telas menores */
   }
-  
-  .checkout {
-    position: absolute;
-    right: 10px;
-  }
-  
-  .checkout-button {
-    height: 50px;
-    border-radius: 5px;
-    border: none;
-    background: rgba(128, 128, 128, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .checkout-button:active {
-    background: rgba(128, 128, 128, 0.7);
-  }
-  
-  .checkout-img {
-    height: 50px;
-  }
-  
+
+
+}
