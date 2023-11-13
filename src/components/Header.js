@@ -19,11 +19,11 @@ function Header() {
 
   return (
     <header className='header'>
-      <img src="http://placekitten.com/200/300" alt="Logo" className='logo' />
-      <h1 className='title'>Mundinho Doce</h1>
+      <center><img src="https://imgur.com/iaMUO1X.png" alt="Logo" className='logo' /></center>
+      
       <div className='checkout'>
         <button className='checkout-button' onClick={openCartModal}>
-          <img src="https://imgur.com/J56hqd5.png" alt="Carrinho" className='checkout-image' height='50px'/>
+          <img src="https://imgur.com/Pk4zU46.png" alt="Carrinho" className='checkout-image' height='50px'/>
           {totalItems > 0 && <span className="item-count">{totalItems}</span>}  {/* Adicione esta linha */}
         </button>
       </div>

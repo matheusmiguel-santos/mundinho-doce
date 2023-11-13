@@ -18,37 +18,31 @@ function CartModal({ isOpen, closeModal }) {
   };
 
   const handleMercadoPagoPayment = async () => {
-    // Montando o objeto de itens para enviar para o backend
-    const items = cartItems.map(item => ({
+    const products = Object.values(groupedItems).map(item => ({
       title: item.product,
-      quantity: item.quantity,
-      unit_price: item.value
+      price: item.value,
+      quantity: item.quantity
     }));
   
     try {
-      const response = await fetch('https://mundinho-doce.vercel.app/api/mercadopago', { // Substitua '/api/mercadopago' pelo caminho real da sua rota serverless
+      const response = await fetch('https://anxious-yoke-dove.cyclic.app/create_payment', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          items,
-          total
-        })
+        body: JSON.stringify(products), // Enviando todos os produtos agora
       });
   
       const data = await response.json();
+      const paymentId = data.id;
   
-      if (data.status === 'success') {
-        // Redirecione o usuário para a página de pagamento do Mercado Pago
-        window.location.href = data.init_point;
-      } else {
-        console.error('Ocorreu um erro ao criar a ordem de pagamento');
-      }
+      // Redirecione o usuário para a página de pagamento do Mercado Pago
+      window.location.href = `https://www.mercadopago.com/mlb/checkout/pay?pref_id=${paymentId}`;
     } catch (error) {
-      console.error('Erro ao comunicar com a API', error);
+      console.error('Payment failed', error);
     }
   };
+  
   
   
 
@@ -57,12 +51,29 @@ function CartModal({ isOpen, closeModal }) {
     // Sua lógica aqui
   };
 
+  const sendOrderToWhatsApp = () => {
+    const orderDetails = cartItems.map(item => 
+      `Produto: ${item.product}, Quantidade: ${item.quantity}, Preço: R$${item.value.toFixed(2)}`).join('\n');
+    
+    const formattedTotal = `Total: R$${total.toFixed(2)}`;
+    const paymentMethodText = `Forma de Pagamento: ${paymentMethod}`;
+    const orderMessage = `Olá, gostaria de fazer o seguinte pedido:\n\n${orderDetails}\n\n${formattedTotal}\n${paymentMethodText}`;
+    
+    const whatsappNumber = '14998141078'; // Seu número do WhatsApp
+    const encodedMessage = encodeURIComponent(orderMessage);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+  };
+
+
   const finalizePurchase = () => {
+    // Sua lógica existente para diferentes métodos de pagamento
     switch(paymentMethod) {
       case 'PIX':
         handlePIXPayment();
         break;
-      case 'Cartão':
+      case 'Cartão Debito/Credito':
         handleCardPayment();
         break;
       case 'MercadoPago':
@@ -74,6 +85,9 @@ function CartModal({ isOpen, closeModal }) {
       default:
         console.error("Método de pagamento não suportado");
     }
+
+    // Enviar pedido para WhatsApp após finalizar a compra
+    sendOrderToWhatsApp();
   };
 
   // Agrupa os produtos
@@ -138,10 +152,12 @@ function CartModal({ isOpen, closeModal }) {
         <select className="payment-select" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
           <option value="PIX">PIX</option>
           <option value="Cartão">Cartão de Crédito/Débito</option>
-          <option value="MercadoPago">Mercado Pago</option>
+          
           <option value="Dinheiro">Dinheiro</option>
+          
         </select>
-        <div className="cart-actions">
+
+                <div className="cart-actions">
           <button onClick={closeModal}>Continuar Comprando</button>
           <button onClick={finalizePurchase}>Finalizar Compra</button>
         </div>

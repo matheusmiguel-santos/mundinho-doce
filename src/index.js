@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initMercadoPago } from '@mercadopago/sdk-react';
+
+initMercadoPago('TEST-c3b08660-7c79-431e-aced-7dceeffec5f5');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
